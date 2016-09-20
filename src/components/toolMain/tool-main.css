@@ -1,0 +1,13 @@
+.tool-main {
+	position: fixed;
+	color: #222;
+	width: 100%;
+	height: 100%;
+	background-color: white;
+	margin-top: 45px;
+	margin-bottom: 45px;
+	top: 0px;
+	right: 0px;
+	bottom: 0px;
+	left: 0px;
+}
