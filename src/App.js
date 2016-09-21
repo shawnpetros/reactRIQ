@@ -4,7 +4,6 @@ import './App.css';
 import Footer from './components/footer';
 import Header from './components/header';
 import ToolMain from './components/toolMain';
-import NumberFormat from 'react-number-format';
 import ReactCSSTransitionGroup from 'react-addons-css-transition-group';
 import { formatUSD } from './utils/utils';
 
