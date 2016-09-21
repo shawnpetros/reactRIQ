@@ -1,6 +1,10 @@
+# This is a demo
+
 This project was bootstrapped with [Create React App](https://github.com/facebookincubator/create-react-app).
 
 This is a React implementation of [Chris Hogan's RIQ calculator](https://www.chrishogan360.com/riq-tool/).
+
+Demo [here](https://arashcuzi.github.io/reactRIQ).
 
 It will hopefully implement much of the same functionality and similar look and feel (there are many cool UI features to recreate).
 
