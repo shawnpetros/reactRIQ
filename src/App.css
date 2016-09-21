@@ -5,3 +5,137 @@
 .App-intro {
 	font-size: large;
 }
+
+* {
+	font-family: 'Oswald', sans-serif;
+	-webkit-font-smoothing: antialiased;
+}
+
+.slide {
+	position: absolute;
+	top: 45px;
+	height: 100%;
+	width: 100%;
+	z-index: 1;
+	color: white;
+	display: flex;
+	flex-direction: column;
+	justify-content: center;
+}
+
+.slide .slide-content {
+	padding: 15px;
+}
+
+h1 {
+	font-family: 'Oswald', sans-serif;
+	font-size: 2.8rem;
+	line-height: 3rem;
+	text-transform: uppercase;
+	margin-bottom: 5px;
+	padding: 0;
+}
+
+h3 {
+	font-family: 'Raleway', sans-serif;
+	font-size: 4.3rem;
+	line-height: 6.5rem;
+	margin-top: 0px;
+	margin-bottom: 0;
+	padding: 0;
+}
+
+h3 span {
+	font-family: 'Raleway', sans-serif;
+}
+
+h3 span.monthly {
+	font-family: 'Oswald', sans-serif;
+}
+
+h3 span.secondary {
+	font-size: 3.3rem;
+	line-height: 5.5rem;
+}
+
+p {
+	font-family: 'Raleway', sans-serif;
+	font-weight: bold;
+	font-size: 1rem;
+	line-height: 1.4rem;
+	margin-top: 1.5rem;
+}
+
+button {
+	max-width: 300px;
+	border: 0;
+	text-transform: uppercase;
+	font-family: 'Oswald', sans-serif;
+	box-shadow: none;
+	color: white;
+	display: inline-block;
+	line-height: 1.4rem;
+	text-decoration: none;
+	font-size: 1.2rem;
+	font-weight: 600;
+	letter-spacing: .05rem;
+	white-space: nowrap;
+	padding: 1rem 2rem;
+	border-radius: 2px;
+	background-color: #2068a7;
+	letter-spacing: 0.2rem;
+	margin: 15px auto 45px auto;
+}
+
+input[type=text] {
+	display: block;
+	margin-left: auto;
+	margin-right: auto;
+	margin-top: 1.5rem;
+	margin-bottom: 1.5rem;
+	padding: 0.5rem 1.2rem;
+	font-size: 1.5rem;
+	text-align: center;
+	border: none;
+	border-radius: 2px;
+}
+
+.bounce-enter {
+  opacity: 0.01;
+}
+
+.bounce-enter.bounce-enter-active {
+  opacity: 1;
+  transition: opacity 500ms ease-in;
+}
+
+.bounce-leave {
+  opacity: 1;
+}
+
+.bounce-leave.bounce-leave-active {
+  opacity: 0.01;
+  transition: opacity 300ms ease-in;
+}
+
+@media screen and (max-width: 640px) {
+	h1 {
+	    font-size: 1.5rem;
+	    line-height: 2rem;
+	}
+
+	h3 {
+		font-size: 2.3rem;
+		line-height: 3rem;
+	}
+
+	h3 span.secondary {
+		font-size: 1.3rem;
+		line-height: 3rem;
+	}
+
+	p {
+		font-size: 1rem;
+		margin-top: 0.5rem;
+	}
+}
