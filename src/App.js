@@ -6,6 +6,9 @@ import Header from './components/header';
 import ToolMain from './components/toolMain';
 import Income from './components/slides/income';
 import Retire from './components/slides/retireIncome';
+import Years from './components/slides/years';
+import Saved from './components/slides/saved';
+import Calcs from './components/slides/calcs';
 import ReactCSSTransitionGroup from 'react-addons-css-transition-group';
 
 class App extends Component {
@@ -15,12 +18,19 @@ class App extends Component {
 		this.state = {
 			step: 1,
 			income: 55000,
+			years: 25,
+			saved: 0,
 			retireIncomePercent: 100
 		}
 	}
 
 	handleClick(e) {
 		let step = this.state.step + 1;
+
+		let elem = document.querySelector('.rc-slider-tooltip');
+		if (elem) {
+			elem.parentNode.parentNode.parentNode.removeChild(elem.parentNode.parentNode);
+		}
 
 		if (step === 6) {
 			step = 1;
@@ -31,9 +41,12 @@ class App extends Component {
 
 	handleChange(e) {
 		let key, val;
-		if (typeof e !== 'object') {
+		if (typeof e !== 'object' && this.state.step === 2) {
 			key = 'retireIncomePercent';
 			val = e * 100;
+		} else if (typeof e !== 'object' && this.state.step === 3) {
+			key = 'years';
+			val = e;
 		} else {
 			key = e.target.name;
 			val = parseInt(e.target.value, 10);
@@ -57,25 +70,19 @@ class App extends Component {
 
 		switch (step) {
 			case 1:
-				mainContent = <Income classes={ step === 1 ? 'active' : '' } handlers={ handlers } state={ this.state } key={ step } />;
+				mainContent = <Income handlers={ handlers } state={ this.state } key={ step } />;
 				break;
 			case 2:
-				mainContent = <Retire classes={ step === 2 ? 'active' : '' } handlers={ handlers } state={ this.state } key={ step } />;
+				mainContent = <Retire handlers={ handlers } state={ this.state } key={ step } />;
 				break;
 			case 3:
-				mainContent = <div className={ `slide ${step === 3 ? 'active' : ''}` }  key={ step }>
-					<button onClick={ this.handleClick.bind(this) }>Continue</button>
-				</div>;
+				mainContent = <Years handlers={ handlers } state={ this.state } key={ step } />;
 				break;
 			case 4:
-				mainContent = <div className={ `slide ${step === 4 ? 'active' : ''}` } key={ step }>
-					<button onClick={ this.handleClick.bind(this) }>Continue</button>
-				</div>;
+				mainContent = <Saved handlers={ handlers } state={ this.state } key={ step } />;
 				break;
 			case 5:
-				mainContent = <div className={ `slide ${step === 5 ? 'active' : ''}` } key={ step }>
-					<button onClick={ this.handleClick.bind(this) }>Start Over</button>
-				</div>;
+				mainContent = <Calcs handlers={ handlers } state={ this.state } key={ step } />;
 				break;
 			default:
 				mainContent = <span>This is cool</span>;

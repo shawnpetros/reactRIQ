@@ -4,11 +4,10 @@ import Slider from 'rc-slider';
 
 export default class Retire extends Component {
 	render() {
-		const { handlers: { change, click }, state: { income, retireIncomePercent }, classes, step } = this.props;
+		const { handlers: { change, click }, state: { income, retireIncomePercent }, step } = this.props;
 		const monthly = formatUSD(parseFloat(income / 12 * retireIncomePercent / 100).toFixed(2));
-		console.log(monthly, retireIncomePercent);
 
-		return <div className={ `slide ${classes}` } key={ step } >
+		return <div className='slide' key={ step } >
 			<div className='slide-content'>
 				<h1>How much of your current salary do you want to replace:</h1>
 				<h3>
@@ -17,18 +16,18 @@ export default class Retire extends Component {
 					<span className='secondary'> Month</span>
 				</h3>
 				<p>This is your current income per month. Use it as a starting point for how much money you will need in retirement</p>
+				<span className='percentage'>{ retireIncomePercent.toFixed(0) + '%' }</span>
 				<div className='slider-container'>
 					<Slider
-						defaultValue={ 1 }
 						max={ 2 }
 						step={ 0.01 }
-						tipFormatter={ val => (val * 100).toFixed(0) + '%' }
+						tipFormatter={ null }
 						defaultValue={ isNaN(retireIncomePercent) ? '' : retireIncomePercent / 100 }
 						onChange={ change }
 					/>
 				</div>
 				<button onClick={ click }>Continue</button>
 			</div>
-		</div>
+		</div>;
 	}
 };

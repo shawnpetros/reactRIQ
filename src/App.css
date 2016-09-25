@@ -58,7 +58,8 @@
 	margin-right: auto;
 	width: 80%;
 	max-width: 500px;
-	margin: 30px 40px;
+	margin-top: 20px;
+	margin-bottom: 30px;
 }
 
 .rc-slider {
