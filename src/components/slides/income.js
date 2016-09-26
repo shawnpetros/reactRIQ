@@ -1,4 +1,5 @@
 import React, { Component } from 'react';
+import NumberFormat from 'react-number-format';
 
 export default class Income extends Component {
 	render() {
@@ -8,12 +9,11 @@ export default class Income extends Component {
 			<div className='slide-content'>
 				<h1>Please enter your total income:</h1>
 				<p>This tool will take into account inflation automatically.</p>
-				<input
-					type='text'
-					name='income'
+				<NumberFormat
+					value={ income }
+					thousandSeparator={ true }
+					prefix={ '$ ' }
 					onChange={ change }
-					value={ isNaN(income) ? '' : income }
-					placeholder='$ 55,000'
 				/>
 				<button onClick={ click }>Continue</button>
 			</div>

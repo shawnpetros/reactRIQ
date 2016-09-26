@@ -1,4 +1,5 @@
 import React, { Component } from 'react';
+import NumberFormat from 'react-number-format';
 
 export default class Saved extends Component {
 	render() {
@@ -7,12 +8,11 @@ export default class Saved extends Component {
 		return <div className='slide' key={ step } >
 			<div className='slide-content'>
 				<h1>How much have you saved for retirement so far:</h1>
-				<input
-					type='text'
-					name='saved'
+				<NumberFormat
+					value={ saved }
+					thousandSeparator={ true }
+					prefix={ '$ ' }
 					onChange={ change }
-					value={ isNaN(saved) ? '' : saved }
-					placeholder='$ 55,000'
 				/>
 				<button onClick={ click }>Continue</button>
 			</div>

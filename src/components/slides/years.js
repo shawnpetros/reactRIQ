@@ -1,6 +1,7 @@
 import React, { Component } from 'react';
-import { formatUSD } from '../../utils/utils';
+// import { formatUSD } from '../../utils/utils';
 import Slider from 'rc-slider';
+import './years.css';
 
 export default class Years extends Component {
 	render() {
@@ -9,11 +10,16 @@ export default class Years extends Component {
 		return <div className='slide' key={ step } >
 			<div className='slide-content'>
 				<h1>In how many years would you like to retire:</h1>
-				<h3>
-					<span className='years'>{ years }</span>
-				</h3>
-				<p>Show the Years here</p>
+				<div className='calendar-container'>
+					<div className="calendar">
+						<div className="cal-content">
+							<span className='years'>{ years }</span>
+							<span className="years-text">Years</span>
+						</div>
+					</div>
+				</div>
 				<div className='slider-container'>
+					<h3>1<span>year</span></h3>
 					<Slider
 						min={ 1 }
 						max={ 50 }
@@ -22,6 +28,7 @@ export default class Years extends Component {
 						defaultValue={ isNaN(years) ? '' : years }
 						onChange={ change }
 					/>
+					<h3>50<span>years</span></h3>
 				</div>
 				<button onClick={ click }>Continue</button>
 			</div>

@@ -26,6 +26,7 @@ class App extends Component {
 
 	handleClick(e) {
 		let step = this.state.step + 1;
+		let riqObj = {};
 
 		let elem = document.querySelector('.rc-slider-tooltip');
 		if (elem) {
@@ -36,10 +37,45 @@ class App extends Component {
 			step = 1;
 		}
 
-		this.setState({ step });
+		if (step === 5) {
+			riqObj = this.getCalcs(this.state);
+		}
+
+		let { riq, monthlyAdd } = riqObj;
+
+		console.log(this.state);
+
+		this.setState({ step, riq, monthlyAdd });
 	}
 
-	handleChange(e) {
+	getCalcs(state) {
+		let { income, years, saved, retireIncomePercent } = state;
+
+		saved = saved || 0;
+
+		let earInflation = this.earCalc(0.0275);
+		let earReturns = this.earCalc(0.12);
+
+		let riq = ( income * retireIncomePercent / 100 ) * Math.pow(1 + earInflation, years) / 0.06;
+
+		riq -= ( saved * Math.pow(1 + earReturns, years) );
+
+		let monthlyAdd = ( riq / ( ( Math.pow(1 + earReturns, years) - 1 ) / earReturns ) ) / 12;
+
+		console.log(earReturns, monthlyAdd);
+
+		return {
+			riq,
+			monthlyAdd
+		};
+	}
+
+	earCalc(rate, nper = 12) {
+		return Math.pow(1 + rate / nper, nper) - 1;
+	}
+
+	handleChange(e, value) {
+		const { step } = this.state;
 		let key, val;
 		if (typeof e !== 'object' && this.state.step === 2) {
 			key = 'retireIncomePercent';
@@ -47,6 +83,9 @@ class App extends Component {
 		} else if (typeof e !== 'object' && this.state.step === 3) {
 			key = 'years';
 			val = e;
+		} else if (value || value === '') {
+			key = step === 1 ? 'income' : 'saved';
+			val = parseInt(value, 10) || 0;
 		} else {
 			key = e.target.name;
 			val = parseInt(e.target.value, 10);
@@ -56,8 +95,9 @@ class App extends Component {
 			val = 0;
 		}
 
-		this.setState({ [key]: val });
 		console.log(this.state);
+
+		this.setState({ [key]: val });
 	}
 
 	render() {

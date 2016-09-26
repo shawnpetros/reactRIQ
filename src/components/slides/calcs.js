@@ -1,20 +1,18 @@
 import React, { Component } from 'react';
+import { formatUSD } from '../../utils/utils';
+import './calcs.css';
 
 export default class Calcs extends Component {
 	render() {
-		const { handlers: { change, click }, state: { saved }, step } = this.props;
+		const { handlers: { click }, state: { riq, monthlyAdd }, step } = this.props;
 
-		return <div className='slide' key={ step } >
+		return <div className='slide riq' key={ step } >
 			<div className='slide-content'>
-				<h1>Your RIQ is:</h1>
-				<input
-					type='text'
-					name='saved'
-					onChange={ change }
-					value={ isNaN(saved) ? '' : saved }
-					placeholder='$ 55,000'
-				/>
-				<button onClick={ click }>Continue</button>
+				<p>Your RIQ is:</p>
+				<h3>{ '$ ' + formatUSD(riq.toFixed(2)) }</h3>
+				<p>Your monthly savings requirement is:</p>
+				<h3>{ '$ ' + formatUSD(monthlyAdd.toFixed(2)) }</h3>
+				<button onClick={ click }>Start Over</button>
 			</div>
 		</div>;
 	}
