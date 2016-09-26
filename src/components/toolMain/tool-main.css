@@ -74,9 +74,18 @@
 .slider-container {
 	margin-left: auto;
 	margin-right: auto;
-	width: 96%;
+	width: 75%;
 	margin-top: 20px;
 	margin-bottom: 30px;
+}
+
+.ret-income .slider-container h3 {
+	text-transform: uppercase;
+	line-height: 3.8rem;
+	font-size: 1rem;
+	letter-spacing: 3px;
+	margin: 0 10px;
+	flex: 1;
 }
 
 .rc-slider {
@@ -86,6 +95,7 @@
 	border-radius: 10px;
 	background-color: white;
 	box-sizing: border-box;
+	flex: 2
 }
 
 .rc-slider * {
@@ -172,5 +182,13 @@
 @media screen and (max-width: 640px) {
 	.percentage {
 		font-size: 1.2rem;
+	}
+
+	.slider-container {
+		width: 96%;
+	}
+
+	.ret-income .slider-container h3 {
+		visibility: hidden;
 	}
 }
