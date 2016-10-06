@@ -20,7 +20,8 @@ class App extends Component {
 			income: 55000,
 			years: 25,
 			saved: 0,
-			retireIncomePercent: 100
+			retireIncomePercent: 100,
+			headerOpen: false
 		}
 	}
 
@@ -100,12 +101,18 @@ class App extends Component {
 		this.setState({ [key]: val });
 	}
 
+	handleHeaderOpen() {}
+
+	changeVariables() {}
+
 	render() {
-		const { step } = this.state;
+		const { step, headerOpen } = this.state;
 		let mainContent;
 		const handlers = {
 			change: this.handleChange.bind(this),
-			click: this.handleClick.bind(this)
+			click: this.handleClick.bind(this),
+			headerClick: this.handleHeaderOpen.bind(this),
+			changeVariables: this.changeVariables.bind(this)
 		}
 
 		switch (step) {
@@ -125,12 +132,26 @@ class App extends Component {
 				mainContent = <Calcs handlers={ handlers } state={ this.state } key={ step } />;
 				break;
 			default:
-				mainContent = <span>This is cool</span>;
+				mainContent = <span>{ 'This is cool' }</span>;
+		}
+
+		let header;
+
+		if (headerOpen) {
+			header = <HeaderOpen handlers={ handlers } open={ headerOpen } key={ 1 } />;
+		} else {
+			header = <Header handlers={ handlers } open={ headerOpen } key={ 0 } />;
 		}
 
 		return (
 			<div className="App">
-				<Header />
+				<ReactCSSTransitionGroup
+					transitionName='open'
+					transitionEnterTimeout={ 300 }
+					transitionLeaveTimeout={ 300 }
+				>
+					{ header }
+				</ReactCSSTransitionGroup>
 					<ToolMain>
 						<ReactCSSTransitionGroup
 							transitionName='active'

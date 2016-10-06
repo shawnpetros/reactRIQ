@@ -1,6 +1,10 @@
-import React from 'react';
+import { React, Component } from 'react';
 import './header.css';
 
-export default () => {
-	return <div className="header">{ 'R:IQ Tool' }</div>;
+export default class Header extends Component {
+
+
+	render() {
+		return <div classNampe='header'>{ 'R:IQ Tool' }</div>;
+	}
 };
