@@ -11,6 +11,7 @@ import Saved from './components/slides/saved';
 import Calcs from './components/slides/calcs';
 import ReactCSSTransitionGroup from 'react-addons-css-transition-group';
 
+// this is a comment
 class App extends Component {
 	constructor(props) {
 		super(props);

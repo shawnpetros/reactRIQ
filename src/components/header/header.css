@@ -1,13 +1,14 @@
 .header {
-	text-transform: uppercase;
-	font-size: 20px;
-	position: fixed;
-	background-color: #438637;
-	color: white;
-	width: 100%;
-	height: 45px;
-	line-height: 45px;
-	top: 0px;
-	left: 0px;
-	z-index: 10;
+	display: flex;
+  flex-direction: column;
+  text-transform: uppercase;
+  font-size: 20px;
+  position: fixed;
+  background-color: #438637;
+  color: white;
+  width: 100%;
+  line-height: 45px;
+  top: 0;
+  left: 0;
+  z-index: 2;
 }
