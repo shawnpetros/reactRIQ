@@ -1,0 +1,25 @@
+language: node_js
+node_js:
+  - "stable"
+cache:
+  directories:
+  - node_modules
+script:
+  - set -e
+  - npm test
+  - npm run build
+  - set +e
+deploy:
+  provider: pages
+  skip_cleanup: true
+  github_token: $github_deploy_token
+  local_dir: build
+  on:
+    branch: master
+deploy:
+  provider: surge
+  skip_cleanup: true
+  project: ./build/
+  domain: www.shawnpetros.com
+  on:
+    branch: master
