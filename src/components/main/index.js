@@ -1,14 +1,14 @@
 import React, { Component } from 'react';
 // import logo from './logo.svg';
-import './App.css';
-import Footer from './components/footer';
-import Header from './components/header';
-import ToolMain from './components/toolMain';
-import Income from './components/slides/income';
-import Retire from './components/slides/retireIncome';
-import Years from './components/slides/years';
-import Saved from './components/slides/saved';
-import Calcs from './components/slides/calcs';
+import './index.css';
+import Footer from '../footer';
+import Header from '../header';
+import ToolMain from '../toolMain';
+import Income from '../slides/income';
+import Retire from '../slides/retireIncome';
+import Years from '../slides/years';
+import Saved from '../slides/saved';
+import Calcs from '../slides/calcs';
 import ReactCSSTransitionGroup from 'react-addons-css-transition-group';
 
 // this is a comment
@@ -22,7 +22,7 @@ class App extends Component {
 			years: 25,
 			saved: 0,
 			retireIncomePercent: 100,
-			headerOpen: false
+			headerOpen: false,
 		}
 	}
 
@@ -102,18 +102,14 @@ class App extends Component {
 		this.setState({ [key]: val });
 	}
 
-	handleHeaderOpen() {}
-
-	changeVariables() {}
-
 	render() {
 		const { step, headerOpen } = this.state;
 		let mainContent;
 		const handlers = {
 			change: this.handleChange.bind(this),
 			click: this.handleClick.bind(this),
-			headerClick: this.handleHeaderOpen.bind(this),
-			changeVariables: this.changeVariables.bind(this)
+			// headerClick: this.handleHeaderOpen.bind(this),
+			// changeVariables: this.changeVariables.bind(this),
 		}
 
 		switch (step) {
@@ -138,11 +134,11 @@ class App extends Component {
 
 		let header;
 
-		if (headerOpen) {
-			header = <HeaderOpen handlers={ handlers } open={ headerOpen } key={ 1 } />;
-		} else {
+		// if (headerOpen) {
+		// 	header = <HeaderOpen handlers={ handlers } open={ headerOpen } key={ 1 } />;
+		// } else {
 			header = <Header handlers={ handlers } open={ headerOpen } key={ 0 } />;
-		}
+		// }
 
 		return (
 			<div className="App">
