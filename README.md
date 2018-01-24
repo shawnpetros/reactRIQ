@@ -1,5 +1,7 @@
 # This is a demo
 
+[![Build Status](https://travis-ci.org/shawnpetros/reactRIQ.svg?branch=master)](https://travis-ci.org/shawnpetros/reactRIQ)
+
 This project was bootstrapped with [Create React App](https://github.com/facebookincubator/create-react-app).
 
 This is a React implementation of [Chris Hogan's RIQ calculator](https://www.chrishogan360.com/riq-tool/).

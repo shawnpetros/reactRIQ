@@ -1,8 +1,8 @@
 import React from 'react';
 import ReactDOM from 'react-dom';
-import App from './App';
+import Main from './index';
 
-it('renders without crashing', () => {
+it('main component renders without crashing', () => {
 	const div = document.createElement('div');
-	ReactDOM.render(<App />, div);
+	ReactDOM.render(<Main />, div);
 });
