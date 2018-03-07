@@ -20,6 +20,5 @@ deploy:
   provider: surge
   skip_cleanup: true
   project: ./build/
-  domain: calc.shawnpetros.com
   on:
     branch: master
