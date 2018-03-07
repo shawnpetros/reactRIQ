@@ -6,7 +6,7 @@ This project was bootstrapped with [Create React App](https://github.com/faceboo
 
 This is a React implementation of [Chris Hogan's RIQ calculator](https://www.chrishogan360.com/riq-tool/).
 
-Demo [here](https://arashcuzi.github.io/reactRIQ) or [here](http://calc.shawnpetros.com).
+Demo [here](http://calc.shawnpetros.com).
 
 It will hopefully implement much of the same functionality and similar look and feel (there are many cool UI features to recreate).
 
