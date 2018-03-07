@@ -8,6 +8,7 @@ script:
   - set -e
   - npm test
   - npm run build
+  - cp CNAME ./build
   - set +e
 deploy:
   provider: pages
